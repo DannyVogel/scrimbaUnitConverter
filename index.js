@@ -1,3 +1,4 @@
+const inputEl = document.getElementById("inputEl")
 const lengthResultEl = document.getElementById("lengthResult")
 const volumeResultEl = document.getElementById("volumeResult")
 const massResultEl = document.getElementById("massResult")
@@ -8,9 +9,9 @@ convertBtn.addEventListener("click", () => {
 })
 
 function renderConversions(){
-    const inputVal = document.getElementById("inputEl").value
+    const inputVal = inputEl.value ? inputEl.value : 0
     const conversions = convertAll(inputVal)
-    
+
     lengthResultEl.innerText = `${inputVal} meters = ${conversions.length.imperial} feet | ${inputVal} feet = ${conversions.length.metric} meters` 
     volumeResultEl.innerText = `${inputVal} liters = ${conversions.volume.imperial} gallons | ${inputVal} gallons = ${conversions.volume.metric} liters`
     massResultEl.innerText = `${inputVal} kilos = ${conversions.mass.imperial} pounds | ${inputVal} pounds = ${conversions.mass.metric} kilos`
